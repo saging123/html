@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>TEST JS</title>
+</head>
+<body>
+    <style>
+        button{
+            font-weight: bold;
+        }
+        .fancy-btn{
+            background-color: blue;
+            color: #fff;
+            outline: none;
+        }
+    </style>
+
+    <button id="btn-click">Click me</button>
+   <div>
+    Count <span id="spn-count">0</span>
+   </div>
+   <!-- calculator -->
+   <div>
+    <input type="number" id="txt-num1" placeholder="Num1">
+    <input type="number" id="txt-num2" placeholder="Num2">
+    <input type="button" id="btn-add" value="Sum">
+    <input type="text" id="txt-result" disabled>
+
+   </div>
+
+    <script>
+        // target element
+        const btnClick = document.getElementById("btn-click");
+        const spnCount = document.getElementById("spn-count"); 
+        var count = 0;
+
+        const txtNum1 = document.getElementById("txt-num1");
+        const txtNum2 = document.getElementById("txt-num2");
+        const btnAdd = document.getElementById("btn-add");
+        const txtResult = document.getElementById("txt-result");
+        
+        btnAdd.addEventListener('click',function(){
+            const num1 = Number(txtNum1.value);
+            const num2 = Number(txtNum2.value);
+            const sum  = num1 + num2;
+            txtResult.value = sum;
+        })
+
+
+
+        // event
+        btnClick.addEventListener('click',function(){
+            // alert('You clicked');
+            count++;
+            if(count > 1 && count < 25){
+                btnClick.classList.add("fancy-btn");
+            }
+            else if(count > 25){
+                  btnClick.classList.remove("fancy-btn");
+            }
+            spnCount.innerText = count;
+        })
+
+    </script>
+</body>
+</html>
